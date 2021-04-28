@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/calculadora.css">
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <div class="fundo">
+        <div class="calculadora">
+            <span id="relogio" class="material-icons">
+                schedule
+            </span>
+            <span id="sinal" class="material-icons">
+                signal_cellular_alt
+            </span>
+            <span id="wifi" class="material-icons">
+                wifi
+            </span>
+            <span id="bateria" class="material-icons">
+                battery_full
+            </span>
+            <p>CALCULADORA</p>
+            <p id="resultado"></p>
+            <table>
+
+                <tr>
+                    <td><button class="botao" onclick="clean()"><b>C</b></button></td>
+                    <td> <button class="botao" onclick="pn()"><b>+/-</b></button></td>
+                    <td> <button class="botao" onclick="porce()"><b>%</b></button></td>
+                    <td><button class="botao" onclick="insert('/')"><b>/</b></button></td>
+
+                </tr>
+                <tr>
+                    <td> <button class="num" onclick="insert('7')">7</button></td>
+                    <td> <button class="num" onclick="insert('8')">8</button></td>
+                    <td><button class="num" onclick="insert('9')">9</button></td>
+                    <td><button class="botao" onclick="insert('*')"><b>x</b></button></td>
+                </tr>
+                <tr>
+                    <td> <button class="num" onclick="insert('4')">4</button></td>
+                    <td> <button class="num" onclick="insert('5')">5</button></td>
+                    <td> <button class="num" onclick="insert('6')">6</button></td>
+                    <td> <button class="botao" onclick="insert('-')"><b>-</b></button></td>
+                </tr>
+                <tr>
+                    <td> <button class="num" onclick="insert('1')">1</button></td>
+                    <td> <button class="num" onclick="insert('2')">2</button></td>
+                    <td> <button class="num" onclick="insert('3')">3</button></td>
+                    <td><button class="botao" onclick="insert('+')"><b>+</b></button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"> <button class="num" style="width: 108px;" onclick="insert('0')">0</button></td>
+                    <td> <button class="num" onclick="insert('.')">.</button></td>
+                    <td><button class="botao" onclick="calcular()"><b>=</b></button></td>
+
+                </tr>
+            </table>
+            <hr color="gray">
+        </div>
+    </div>
+    <script>
+        function insert(numero) {
+            var nume = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = nume + numero;
+
+        }
+        function clean() {
+            document.getElementById('resultado').innerHTML = "";
+        }
+        function calcular() {
+            var resultado = document.getElementById('resultado').innerHTML;
+            if (resultado) {
+                document.getElementById('resultado').innerHTML = eval(resultado);
+            }
+        }
+        function porce(numero) {
+            var porcentagem = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = porcentagem / 100;
+        }
+        function pn() {
+            var pn = document.getElementById('resultado').innerHTML;
+            document.getElementById('resultado').innerHTML = pn * -1;
+        }
+    </script>
+</body>
+
+</html>
